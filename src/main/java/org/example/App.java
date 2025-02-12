@@ -16,13 +16,24 @@ public class App
         var ticketDao = TicketDao.getInstance();
 
         var ticket = new Ticket();
-        ticket.setPassportNumber("A12345678");
-        ticket.setPassengerName("Ivan Ivanov");
-        ticket.setFlightId(1L);
-        ticket.setSeatNumber("12B");
-        ticket.setCost(BigDecimal.TEN);
+//        ticket.setPassportNumber("A1234567");
+//        ticket.setPassengerName("Bella Bella");
+//        ticket.setFlightId(6L);
+//        ticket.setSeatNumber("12B");
+//        ticket.setCost(BigDecimal.TEN);
         //System.out.println(ticketDao.save(ticket));
 
-        System.out.println(ticketDao.delete(2L));
+        //System.out.println(ticketDao.delete(2L));
+
+        //System.out.println(ticketDao.findAll());
+
+        //System.out.println(ticketDao.findById(1L));
+
+        var ticket2 = ticketDao.findById(6L).get();
+        System.out.println(ticket2);
+        ticket2.setCost(BigDecimal.ONE);
+        ticketDao.update(ticket2);
+        System.out.println(ticket2);
+
     }
 }
