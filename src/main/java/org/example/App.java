@@ -1,6 +1,8 @@
 package org.example;
 
+import org.example.dao.FlightDao;
 import org.example.dao.TicketDao;
+import org.example.dto.TicketFilter;
 import org.example.entity.Ticket;
 
 import java.math.BigDecimal;
@@ -29,11 +31,18 @@ public class App
 
         //System.out.println(ticketDao.findById(1L));
 
-        var ticket2 = ticketDao.findById(6L).get();
-        System.out.println(ticket2);
-        ticket2.setCost(BigDecimal.ONE);
-        ticketDao.update(ticket2);
-        System.out.println(ticket2);
+//        var ticket2 = ticketDao.findById(6L).get();
+//        System.out.println(ticket2);
+//        ticket2.setCost(BigDecimal.ONE);
+//        ticketDao.update(ticket2);
+//        System.out.println(ticket2);
 
+        var filter = new TicketFilter(null, null, 5, 0);
+        System.out.println(ticketDao.findAll(filter));
+
+        //var flightDao = FlightDao.getInstance();
+        //System.out.println(flightDao.findAll());
+
+        //System.out.println(ticketDao.findById(6L));
     }
 }

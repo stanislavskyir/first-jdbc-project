@@ -7,18 +7,18 @@ public class Ticket {
     private Long id;
     private String passportNumber;
     private String passengerName;
-    private Long flightId;
+    private Flight flight;
     private String seatNumber;
     private BigDecimal cost;
 
     public Ticket() {
     }
 
-    public Ticket(Long id, String passportNumber, String passengerName, Long flightId, String seatNumber, BigDecimal cost) {
+    public Ticket(Long id, String passportNumber, String passengerName, Flight flight, String seatNumber, BigDecimal cost) {
         this.id = id;
         this.passportNumber = passportNumber;
         this.passengerName = passengerName;
-        this.flightId = flightId;
+        this.flight = flight;
         this.seatNumber = seatNumber;
         this.cost = cost;
     }
@@ -47,12 +47,12 @@ public class Ticket {
         this.passengerName = passengerName;
     }
 
-    public Long getFlightId() {
-        return flightId;
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void setFlightId(Long flightId) {
-        this.flightId = flightId;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     public String getSeatNumber() {
@@ -74,24 +74,24 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "id=" + id +
-                ", passportNumber='" + passportNumber + '\'' +
-                ", passengerName='" + passengerName + '\'' +
-                ", flightId=" + flightId +
-                ", seatNumber='" + seatNumber + '\'' +
-                ", cost=" + cost +
-                '}';
+               "id=" + id +
+               ", passportNumber='" + passportNumber + '\'' +
+               ", passengerName='" + passengerName + '\'' +
+               ", flightId=" + flight +
+               ", seatNumber='" + seatNumber + '\'' +
+               ", cost=" + cost +
+               '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return Objects.equals(id, ticket.id) && Objects.equals(passportNumber, ticket.passportNumber) && Objects.equals(passengerName, ticket.passengerName) && Objects.equals(flightId, ticket.flightId) && Objects.equals(seatNumber, ticket.seatNumber) && Objects.equals(cost, ticket.cost);
+        return Objects.equals(id, ticket.id) && Objects.equals(passportNumber, ticket.passportNumber) && Objects.equals(passengerName, ticket.passengerName) && Objects.equals(flight, ticket.flight) && Objects.equals(seatNumber, ticket.seatNumber) && Objects.equals(cost, ticket.cost);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, passportNumber, passengerName, flightId, seatNumber, cost);
+        return Objects.hash(id, passportNumber, passengerName, flight, seatNumber, cost);
     }
 }
